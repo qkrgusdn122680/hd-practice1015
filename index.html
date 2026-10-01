@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HD현대중공업 선박생산관리 포트폴리오</title>
+  <style>
+    :root {
+      --hyundai-blue: #003f87;
+      --hyundai-navy: #002b5c;
+      --hyundai-yellow: #f6c400;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --line: #d9e2ec;
+      --soft-blue: #eef5ff;
+      --soft-yellow: #fff8db;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+      font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      min-height: 84vh;
+      display: grid;
+      align-content: center;
+      gap: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      color: var(--hyundai-blue);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 6px;
+      border-radius: 8px;
+      background: var(--hyundai-yellow);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      color: var(--hyundai-navy);
+      font-size: 52px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0;
+      color: var(--text);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .badges li {
+      border: 1px solid var(--hyundai-blue);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--hyundai-blue);
+      background: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .link-button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--hyundai-blue);
+      border-radius: 8px;
+      padding: 0 18px;
+      color: var(--white);
+      background: var(--hyundai-blue);
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .link-button:hover {
+      background: var(--hyundai-navy);
+    }
+
+    .quick-view {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .quick-item {
+      min-height: 116px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--soft-blue);
+    }
+
+    .quick-item strong {
+      display: block;
+      color: var(--hyundai-navy);
+      font-size: 15px;
+    }
+
+    .quick-item span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .flow-visual {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      align-items: stretch;
+      max-width: 840px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .flow-visual li {
+      min-height: 86px;
+      border: 1px solid var(--line);
+      border-top: 8px solid var(--hyundai-blue);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--white);
+    }
+
+    .flow-visual li:nth-child(2) {
+      border-top-color: var(--hyundai-yellow);
+    }
+
+    .flow-visual strong {
+      display: block;
+      color: var(--hyundai-navy);
+      font-size: 17px;
+    }
+
+    .flow-visual span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--hyundai-navy);
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .role-grid,
+    .strength-grid,
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .role-item,
+    .strength-card,
+    .case-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .company-summary {
+      display: grid;
+      grid-template-columns: 1.1fr 1.9fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .company-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--soft-blue);
+    }
+
+    .company-card h3 {
+      margin: 0 0 10px;
+      color: var(--hyundai-navy);
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .company-card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .metric-table {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 16px;
+    }
+
+    .metric-table th,
+    .metric-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 15px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .metric-table thead th {
+      color: var(--hyundai-navy);
+      background: var(--soft-yellow);
+      font-weight: 700;
+    }
+
+    .metric-table tbody tr:last-child th,
+    .metric-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .metric-table tbody th {
+      color: var(--hyundai-navy);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .metric-number {
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .source-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .image-slot {
+      display: grid;
+      min-height: 160px;
+      margin-bottom: 16px;
+      place-items: center;
+      border: 1px dashed var(--hyundai-blue);
+      border-radius: 8px;
+      color: var(--hyundai-blue);
+      background: var(--soft-blue);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .role-item {
+      border-left: 6px solid var(--hyundai-blue);
+    }
+
+    .role-item h3,
+    .strength-card h3,
+    .case-card h3,
+    .project-card h3 {
+      margin: 0 0 10px;
+      color: var(--hyundai-navy);
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .role-item p,
+    .strength-card p,
+    .case-card p,
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .highlight {
+      border-left: 8px solid var(--hyundai-yellow);
+      background: var(--soft-yellow);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .info-table th,
+    .info-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 24%;
+      color: var(--hyundai-navy);
+      background: var(--soft-blue);
+      font-weight: 700;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .commitment {
+      max-width: 900px;
+      margin: 0;
+      color: var(--text);
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .profile-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .profile-list li {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .profile-list strong {
+      display: block;
+      color: var(--hyundai-blue);
+      font-size: 14px;
+    }
+
+    .profile-list span {
+      display: block;
+      margin-top: 6px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 30px 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .quick-view,
+      .flow-visual,
+      .role-grid,
+      .strength-grid,
+      .case-grid,
+      .project-grid,
+      .company-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 56px 0 42px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-copy,
+      .commitment {
+        font-size: 19px;
+      }
+
+      .quick-view,
+      .flow-visual,
+      .role-grid,
+      .strength-grid,
+      .case-grid,
+      .project-grid,
+      .profile-list,
+      .company-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .info-table,
+      .info-table tbody,
+      .info-table tr,
+      .info-table th,
+      .info-table td,
+      .metric-table,
+      .metric-table thead,
+      .metric-table tbody,
+      .metric-table tr,
+      .metric-table th,
+      .metric-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .info-table th,
+      .metric-table thead th {
+        border-bottom: 0;
+      }
+
+      .metric-table thead th:not(:first-child) {
+        display: none;
+      }
+
+      .metric-table tbody th {
+        background: var(--soft-blue);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero" id="top">
+      <div>
+        <p class="eyebrow">박현우 | HD현대중공업 선박생산관리 신입 지원자</p>
+        <h1>전기전자공학 기반으로 생산현장의 안전과 문제해결을 함께 고민합니다.</h1>
+      </div>
+
+      <p class="hero-copy">
+        울산대학교 전기전자공학 졸업, 전기기사와 산업안전기사 취득, HD현대 Future Builder 아카데미 이수를 바탕으로 선박생산관리 직무를 준비했습니다.
+      </p>
+
+      <ul class="badges" aria-label="핵심 이력">
+        <li>전기전자공학</li>
+        <li>전기기사</li>
+        <li>산업안전기사</li>
+        <li>HD현대 Future Builder 아카데미</li>
+      </ul>
+
+      <div class="action-links" aria-label="페이지 이동">
+        <a class="link-button" href="chatbot.html">교육용 안전문서 검색 열기</a>
+      </div>
+
+      <ul class="flow-visual" aria-label="선박생산관리 핵심 흐름">
+        <li>
+          <strong>공정</strong>
+          <span>작업 순서와 흐름 이해</span>
+        </li>
+        <li>
+          <strong>안전</strong>
+          <span>위험요소와 기준 확인</span>
+        </li>
+        <li>
+          <strong>품질</strong>
+          <span>작업 기준과 결과 점검</span>
+        </li>
+        <li>
+          <strong>협업</strong>
+          <span>정보 공유와 문제 정리</span>
+        </li>
+      </ul>
+
+      <div class="quick-view" aria-label="채용담당자 30초 확인 정보">
+        <div class="quick-item">
+          <strong>지원 직무</strong>
+          <span>HD현대중공업 선박생산관리</span>
+        </div>
+        <div class="quick-item">
+          <strong>전공</strong>
+          <span>울산대학교 전기전자공학 졸업</span>
+        </div>
+        <div class="quick-item">
+          <strong>자격 1</strong>
+          <span>전기기사</span>
+        </div>
+        <div class="quick-item">
+          <strong>자격 2</strong>
+          <span>산업안전기사</span>
+        </div>
+        <div class="quick-item">
+          <strong>강점</strong>
+          <span>안전의식, 문제해결</span>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="role-title">
+      <div class="section-head">
+        <h2 id="role-title">지원 직무 이해</h2>
+        <p>
+          선박생산관리는 공정, 일정, 안전, 품질, 협업 요소를 함께 고려해 생산이 계획대로 진행되도록 조율하는 현장 중심 직무라고 이해하고 있습니다.
+        </p>
+      </div>
+
+      <div class="role-grid">
+        <article class="role-item">
+          <h3>공정과 일정</h3>
+          <p>작업 순서와 선후관계를 이해하고, 생산 흐름이 지연되지 않도록 관리하는 관점이 필요합니다.</p>
+        </article>
+        <article class="role-item">
+          <h3>안전과 품질</h3>
+          <p>안전 기준과 작업 기준은 생산성을 뒷받침하는 기본 조건이며, 현장 판단의 기준이 되어야 합니다.</p>
+        </article>
+        <article class="role-item">
+          <h3>현장 협업</h3>
+          <p>작업자, 관련 부서, 협력업체와 정보를 정확히 공유하고 문제 상황을 빠르게 정리하는 태도가 중요합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="company-title">
+      <div class="section-head">
+        <h2 id="company-title">관심있는 회사 소개</h2>
+        <p>
+          OpenDART API로 확인한 HD현대중공업 2025년 사업보고서 데이터를 바탕으로, 지원 회사의 사업 규모를 간단히 정리했습니다.
+        </p>
+      </div>
+
+      <div class="company-summary">
+        <article class="company-card">
+          <h3>HD현대중공업</h3>
+          <p>
+            선박 생산관리 직무를 희망하는 회사로, 대형 조선 사업의 공정, 안전, 품질, 협업 역량이 함께 요구되는 제조 현장을 가진 기업입니다.
+          </p>
+          <p class="source-note">
+            고유번호 01390344, 사업보고서 2025.12 기준
+          </p>
+        </article>
+
+        <table class="metric-table">
+          <thead>
+            <tr>
+              <th scope="col">구분</th>
+              <th scope="col">금액</th>
+              <th scope="col">출처</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">매출액</th>
+              <td class="metric-number">17,580,633,257,000원</td>
+              <td>포괄손익계산서 / 매출액</td>
+            </tr>
+            <tr>
+              <th scope="row">영업이익</th>
+              <td class="metric-number">2,037,510,103,000원</td>
+              <td>포괄손익계산서 / 영업이익</td>
+            </tr>
+            <tr>
+              <th scope="row">수주잔고</th>
+              <td class="metric-number">56,384,472,000,000원</td>
+              <td>사업보고서 원문 수주상황 표</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="source-note">
+        데이터 파일: data/financials.json, data/financials.csv / 수주잔고는 사업보고서 원문 표의 56,384,472백만원을 원 단위로 환산했습니다.
+      </p>
+    </section>
+
+    <section aria-labelledby="strength-title">
+      <div class="section-head">
+        <h2 id="strength-title">핵심 역량</h2>
+        <p>
+          확인된 전공, 자격, 교육 이력을 바탕으로 안전 중심 사고와 문제해결 태도를 직무 강점으로 제시합니다.
+        </p>
+      </div>
+
+      <div class="strength-grid">
+        <article class="strength-card highlight">
+          <h3>안전 중심 사고</h3>
+          <p>산업안전기사 취득을 통해 위험요소를 기준에 따라 확인하고, 안전을 생산의 전제 조건으로 바라보는 관점을 갖췄습니다.</p>
+        </article>
+        <article class="strength-card">
+          <h3>전기전자 기반 기술 이해</h3>
+          <p>전기전자공학 전공과 전기기사 자격을 바탕으로 선박 내 전장, 설비, 전력 계통 이해로 확장 가능한 기본기를 갖췄습니다.</p>
+        </article>
+        <article class="strength-card">
+          <h3>문제해결 태도</h3>
+          <p>문제를 감으로 처리하기보다 원인, 영향, 우선순위로 나누어 보고 일정, 품질, 안전 리스크를 함께 고려하려 합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="proof-title">
+      <div class="section-head">
+        <h2 id="proof-title">자격증 및 교육 이수</h2>
+        <p>
+          신입 지원자로서 직무를 준비해 온 근거를 전공, 자격, 교육 이력으로 정리했습니다.
+        </p>
+      </div>
+
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th scope="row">전공</th>
+            <td>울산대학교 전기전자공학 졸업: 선박 전장, 설비, 전력 계통 이해 기반</td>
+          </tr>
+          <tr>
+            <th scope="row">자격</th>
+            <td>전기기사: 전기 설비와 기술 기준 이해</td>
+          </tr>
+          <tr>
+            <th scope="row">자격</th>
+            <td>산업안전기사: 현장 안전관리 인식</td>
+          </tr>
+          <tr>
+            <th scope="row">교육</th>
+            <td>HD현대 Future Builder 아카데미 이수: HD현대와 제조업 직무 이해도 강화</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="case-title">
+      <div class="section-head">
+        <h2 id="case-title">프로젝트 및 실습 경험</h2>
+        <p>
+          제공된 프로젝트와 실습 경험을 선박생산관리 직무와 연결해 정리했습니다. 실제 이미지는 넣지 않고 필요한 위치에 자리만 만들었습니다.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="image-slot">프로젝트 이미지 자리</div>
+          <h3>용접결함 CNN AI 모델 구축 프로젝트</h3>
+          <p>용접결함을 판별하는 CNN AI 모델 구축 경험을 통해 품질 이슈를 데이터 기반으로 바라보는 관점을 쌓았습니다.</p>
+        </article>
+        <article class="project-card">
+          <div class="image-slot">실습 이미지 자리</div>
+          <h3>도면독도 및 블록제작 실습</h3>
+          <p>도면을 읽고 블록제작 과정을 실습하며 선박 생산이 도면, 공정, 작업 순서와 연결된다는 점을 학습했습니다.</p>
+        </article>
+        <article class="project-card">
+          <div class="image-slot">설계과제 이미지 자리</div>
+          <h3>학부 설계과제 프로젝트</h3>
+          <p>전기전자공학 기반의 설계과제를 수행하며 요구사항을 정리하고 문제를 단계적으로 해결하는 방식을 익혔습니다.</p>
+        </article>
+        <article class="project-card">
+          <div class="image-slot">캡스톤 이미지 자리</div>
+          <h3>캡스톤 디자인 프로젝트</h3>
+          <p>팀 기반 과제 수행을 통해 역할 분담, 진행 상황 공유, 문제 발생 시 조율의 중요성을 경험했습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="future-title">
+      <div class="section-head">
+        <h2 id="future-title">기여 방향</h2>
+        <p>
+          신입으로서 현장의 기준을 먼저 배우고, 전기와 안전 지식을 바탕으로 정확하게 실행하는 생산관리자로 성장하고자 합니다.
+        </p>
+      </div>
+
+      <div class="panel">
+        <p class="commitment">
+          입사 초기에는 현장의 공정 흐름과 안전 기준을 정확히 익히는 것을 최우선으로 하겠습니다. 이후 전기전자 전공 지식과 안전 자격을 바탕으로, 작업 진행 중 발생하는 문제를 구조적으로 파악하고 관련 부서와 원활히 조율하는 생산관리자로 성장하고자 합니다.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="profile-title">
+      <div class="section-head">
+        <h2 id="profile-title">프로필</h2>
+        <p>
+          채용담당자가 마지막으로 확인할 수 있는 기본 정보입니다. 사용자가 제공하지 않은 개인정보는 기재하지 않았습니다.
+        </p>
+      </div>
+
+      <ul class="profile-list">
+        <li>
+          <strong>이름</strong>
+          <span>박현우</span>
+        </li>
+        <li>
+          <strong>지원 직무</strong>
+          <span>HD현대중공업 선박생산관리</span>
+        </li>
+        <li>
+          <strong>학력</strong>
+          <span>울산대학교 전기전자공학 졸업</span>
+        </li>
+        <li>
+          <strong>보유 자격</strong>
+          <span>전기기사, 산업안전기사</span>
+        </li>
+        <li>
+          <strong>교육 이수</strong>
+          <span>HD현대 Future Builder 아카데미</span>
+        </li>
+        <li>
+          <strong>연락처</strong>
+          <span>qkrgusdn122680@naver.com</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>이 페이지는 제공된 사실 정보만 바탕으로 작성되었습니다. 확인되지 않은 경력, 수상, 수치는 포함하지 않았습니다.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "company_name": "HD현대중공업",
+  "corp_code": "01390344",
+  "business_year": "2025",
+  "report_code": "11011",
+  "report_name": "사업보고서 (2025.12)",
+  "receipt_no": "20260320000859",
+  "receipt_date": "20260320",
+  "fs_div": "CFS",
+  "fetched_at": "2026-10-01T14:23:12+09:00",
+  "metrics": [
+    {
+      "name": "매출액",
+      "amount_krw": 17580633257000,
+      "amount_original": "17580633257000",
+      "unit": "KRW",
+      "source": "포괄손익계산서 / 매출액"
+    },
+    {
+      "name": "영업이익",
+      "amount_krw": 2037510103000,
+      "amount_original": "2037510103000",
+      "unit": "KRW",
+      "source": "포괄손익계산서 / 영업이익"
+    },
+    {
+      "name": "수주잔고",
+      "amount_krw": 56384472000000,
+      "amount_original": "56,384,472",
+      "unit": "KRW",
+      "source": "사업보고서 원문 수주상황 표 / 사업보고서 원문 표 단위: 백만원"
+    }
+  ]
+}
